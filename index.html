@@ -69,10 +69,18 @@ h2 {
 
 img {
   display: block;
-  max-width: 100%;
+  width: 100%;
   height: auto;
   border-radius: 12px;
-  margin-top: 10px;
+  margin: 10px auto 0;
+}
+
+.schedule-img {
+  max-width: 900px;
+}
+
+.ghin-img {
+  max-width: 650px;
 }
 
 .contact {
@@ -148,24 +156,57 @@ footer {
 
 <section class="section">
   <h2>Tournament Schedule</h2>
-  <img src="Abigail-summer-2026-schedule.png" alt="Abigail Murphy Summer 2026 Tournament Schedule">
+  <img
+    id="scheduleImage"
+    class="schedule-img"
+    src="Abigail-summer-2026-schedule.png"
+    alt="Abigail Murphy Summer 2026 Tournament Schedule"
+  >
 </section>
 
 <section class="section">
   <h2>GHIN Handicap Verification</h2>
-  <img src="Abigail-GHIN-handicap%20.jpg" alt="Abigail Murphy GHIN Handicap Verification">
+  <img
+    class="ghin-img"
+    src="Abigail-GHIN-handicap%20.jpg"
+    alt="Abigail Murphy GHIN Handicap Verification"
+  >
 </section>
 
 <section class="contact">
   <h2>Recruiting Contact</h2>
   <p>
-    <a href="mailto:abigail@abigailmurphygolf.com">abigail@abigailmurphygolf.com</a>
+    <a href="mailto:abigail@abigailmurphygolf.com">
+      abigail@abigailmurphygolf.com
+    </a>
   </p>
 </section>
 
 <footer>
   © 2026 Abigail Murphy Golf
 </footer>
+
+<script>
+const scheduleImage = document.getElementById("scheduleImage");
+
+const scheduleOptions = [
+  "Abigail-summer-2026-schedule.png",
+  "Abigail-summer-2026-schedule%20.png",
+  "Abigail-summer-2026-schedule .png",
+  "abigail-summer-2026-schedule.png",
+  "abigail-summer-schedule.png",
+  "abigail-summer-schedule%20.png"
+];
+
+let scheduleIndex = 0;
+
+scheduleImage.onerror = function () {
+  scheduleIndex++;
+  if (scheduleIndex < scheduleOptions.length) {
+    scheduleImage.src = scheduleOptions[scheduleIndex];
+  }
+};
+</script>
 
 </body>
 </html>
